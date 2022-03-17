@@ -1,10 +1,13 @@
 import React from 'react';
-import { Button } from "react-bootstrap";
+import { ContainerTut, RowTut} from "./components/Static"
 
 function App() {
   return (
     <div className="App">
-      <Button>Helo</Button>
+      
+      <ContainerTut />
+
+      <RowTut />     
       
     </div>
   );
