@@ -5,10 +5,10 @@ export const ContainerTut =()=>{
 	return(
 			<div >
 				<div className='container'>
-					i am margined container
+					i am normal container
 				</div> <br/>
 				<div className='container-fluid'>
-					i am non margined container
+					i am a container-fluid
 				</div>
 			</div>
 		)
