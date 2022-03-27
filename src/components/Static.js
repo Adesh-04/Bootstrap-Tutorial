@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Container, Row, Stack } from 'react-bootstrap';
+import { Button, Col, Container, Row, Stack, Form, FormGroup, FormLabel, FormControl, FormRange, FormSelect, FormCheck, InputGroup } from 'react-bootstrap';
 import './../stylesheet/Style.css';
 
 export const ContainerTut =()=>{
@@ -18,7 +18,7 @@ export const ContainerTut =()=>{
 export const RowTut =()=>{
 	return(
 		<div >
-			<Container>
+			<Container fluid>
 				<Row className='bg-dark text-light'> first Row</Row>
 				<Row> Second Row</Row>
 			</Container>
@@ -45,11 +45,85 @@ export const ColOrderTut =()=>{        {/* You can use breakpoints to change ord
 export const StackTut =()=>{
 	return(
 		<div>
-			<Stack gap={3}>
-				<div className="bg-light border">First item</div>
-				<div className="bg-light border">Second item</div>
-				<div className="bg-light border">Third item</div>
+			<Stack direction={'horizontal'} gap={3}>
+				
+				<Form.Control className="ms-5" placeholder="Add your item here..." />
+				<Button variant='success'>Search</Button>
+				<div className='vr'></div>
+				<Button variant='outline-danger' >Reset</Button>
+				
 			</Stack>
+		</div>
+	)
+}
+
+export const FormTutPartOne =()=>{
+	return(
+		<div>
+			<Container>
+				<Form > {/* validated */}
+					<FormGroup className='mb-3' >
+						<FormLabel > Email </FormLabel> {/* visuallyHidden */}
+						<FormControl isInvalid type='email' placeholder='Enter your Email Address'  ></FormControl> {/* feedback plaintext readOnly defaultValue */}
+					</FormGroup>
+
+					<FormGroup className='mb-3'>
+						<FormLabel> Password </FormLabel>
+						<FormControl size='lg' type='password' placeholder='Enter your Password' disabled ></FormControl>
+					</FormGroup>
+
+					{/* <FormGroup className='mb-3'>
+						<FormLabel> Info </FormLabel>
+						<FormControl className='mb-3' as='textarea' row='6' />
+					</FormGroup> */}
+
+					{/* <Form.Control isInvalid className='mb-3' type='file'/> */}
+
+					<FormCheck className='mb-3' type='checkbox' label='Select Me' />
+					<FormGroup>
+						<FormCheck inline className='mb-3' name='radioType' type='radio' label='Select Me' />
+						<FormCheck inline className='mb-3' name='radioType' type='radio' label='Select Me' />
+					</FormGroup>
+					<FormCheck type='switch' label='On/OFF' />
+
+					<FormLabel>Range</FormLabel>
+					<Form.Range/>
+					
+					<FormControl className='mb-3' defaultValue='#EF1823' type='color'/>
+
+					<FormSelect >
+						<option>Select</option>
+						<option>one</option>
+						<option>two</option>
+						<option>three</option>
+					</FormSelect>
+						
+					
+
+					<Stack direction={'horizontal'} gap={3} className='mt-3'>
+						<Button variant='success' disabled>Login</Button>
+						<div className='vr '></div>
+						<Button variant='outline-danger' className=' '>Reset Password</Button>
+					</Stack>
+					
+
+				</Form>
+			</Container>
+		</div>
+	)
+}
+
+export const FormTutPartTwo =()=>{
+	return(
+		<div>
+			<Container>
+				<Form>
+					<InputGroup>
+						<InputGroup.Text>@</InputGroup.Text>
+						<FormControl placeholder='Email'/>
+					</InputGroup>
+				</Form>
+			</Container>
 		</div>
 	)
 }
