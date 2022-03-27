@@ -1,52 +1,55 @@
 import React from 'react';
+import { Col, Container, Row, Stack } from 'react-bootstrap';
 import './../stylesheet/Style.css';
 
 export const ContainerTut =()=>{
 	return(
-			<div >
-				<div className='container'>
-					i am normal container
-				</div> <br/>
-				<div className='container-fluid'>
-					i am a container-fluid
-				</div>
-			</div>
+		<div>
+			<Container>
+				I am a normal container
+			</Container>
+			<Container fluid>
+				I am a fluid container
+			</Container>
+		</div>
 		)
 	}
 
 export const RowTut =()=>{
 	return(
-		<div className='container'>
-			<div className='row row-cols-3'>    {/* row-cols-3 makes output of 3 col unit*/}
-				<div className='col'>col 0</div>
-				<div className='col'>col 1</div>
-				<div className='col'>col 2</div>
-				<div className='col'>col 3</div>
-				<div className='col'>col 4</div>
-				{/* <div className='w-100'><br/></div>			This adds a break */}
-				<div className='col'>col 5</div>
-				<div className='col'>col 6</div>
-				<div className='col'>col 7</div>
-				<div className='col'>col 8</div>
-				<div className='col'>col 9</div>
-			</div>
+		<div >
+			<Container>
+				<Row className='bg-dark text-light'> first Row</Row>
+				<Row> Second Row</Row>
+			</Container>
 		</div>
 	)
 }
 
-export const OrderTut =()=>{        {/* You can use breakpoints to change order depending upon screen size */}
+export const ColOrderTut =()=>{        {/* You can use breakpoints to change order depending upon screen size */}
 	return(
-		<div className='container'>
-			<div className='row'>
-				<div className='col bg-success'>order 0</div>
-				<div className='col bg-primary order-last'>order 1</div>
-				<div className='col bg-danger  order-md-5'>order 2</div>
-				<div className='col bg-dark    text-light'>order 3</div> 			{/* try using inspect and size of sm or lower*/}
-				<div className='col bg-light   order-md-3'>order 4</div>
-				<div className='col bg-warning order-first'>order 5</div>
-				<div className='col bg-secondary'>order 6</div>
-			</div>
+		<div>
+			<Container>
+				<Row className='border border-warning border-3'>
+					<Col md={{offset:5, order:5}} className='border border-dark text-info' > first col </Col>
+					<Col md={{span:2, order:2}} className='border border-primary text-warning'> second col </Col>
+					<Col md={{ order:1}} className='border border-dark text-danger'> third col </Col>
+					<Col md={{ order:3}} className='border border-primary text-dark'> forth col </Col>
+					<Col md={{ order:4}} className='border border-dark text-primary'> fifth col </Col>
+				</Row>
+			</Container>
 		</div>
+	)
+}
 
+export const StackTut =()=>{
+	return(
+		<div>
+			<Stack gap={3}>
+				<div className="bg-light border">First item</div>
+				<div className="bg-light border">Second item</div>
+				<div className="bg-light border">Third item</div>
+			</Stack>
+		</div>
 	)
 }
