@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Col, Container, Row, Stack, Form, FormGroup, FormLabel, FormControl, FormRange, FormSelect, FormCheck, InputGroup, FloatingLabel, FormFloating } from 'react-bootstrap';
+import { Button, Col, Container, Row, Stack, Form, FormGroup, FormLabel, FormControl, FormRange, FormSelect, FormCheck, InputGroup, FloatingLabel, FormFloating, Alert } from 'react-bootstrap';
 import './../stylesheet/Style.css';
 
 export const ContainerTut =()=>{
@@ -160,6 +160,32 @@ export const FormTutPartTwo =()=>{
 
 				</Form>
 			</Container>
+		</div>
+	)
+}
+
+export const AlertTut =()=>{
+
+	const [alert, setDismiss] = useState(false)
+
+	return(
+		<div className='text-center'>
+			{
+
+			alert?<Container fluid>
+				{
+					['primary', 'info', 'warning', 'danger'].map((value,index)=>(
+						<Alert dismissible onClick={()=> setDismiss(false)} key={index} variant={value}>
+							Hey Check This {value} with{' '}
+							<Alert.Link href='https://react-bootstrap.github.io/components/alerts/'>Example</Alert.Link>
+						</Alert>
+					))
+				}
+				</Container>
+				:<Button onClick={()=> setDismiss(true)} variant='danger'>Show All</Button>
+
+			}
+
 		</div>
 	)
 }
