@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Button, Col, Container, Row, Stack, Form, FormGroup, FormLabel, FormControl, FormRange, FormSelect, FormCheck, InputGroup, FloatingLabel, FormFloating, Alert } from 'react-bootstrap';
+import { Button, Col, Container, Row, Stack, Form, FormGroup, FormLabel, FormControl, FormRange, FormSelect, FormCheck, InputGroup, FloatingLabel, FormFloating, Alert, Accordion, useAccordionButton, Card } from 'react-bootstrap';
 import './../stylesheet/Style.css';
+
+	{/* Trying to solve a problem in AccordionTut line number 200 */}
 
 export const ContainerTut =()=>{
 	return(
@@ -187,5 +189,53 @@ export const AlertTut =()=>{
 			}
 
 		</div>
+	)
+}
+
+export const AccordionTut =()=>{
+
+	function CustomToggle({children, eventKey}){
+		const customButton = useAccordionButton(eventKey);
+
+		const [color, changeColor] = useState(true);		{/* Trying to add this state in button*/}
+
+		return(
+			<div>
+				{
+					color?<Button className='justify-content-end' variant='primary' type='button' onClick={ customButton } >{children} </Button>
+					:<Button className='justify-content-end' variant='danger' type='button' onClick={ customButton } >{children} </Button>
+				}	
+			</div>
+
+		)
+	}
+
+
+	return(
+		<Container fluid>
+			<Accordion>
+				<Accordion.Item eventKey='0'>
+					<Accordion.Header> Accordion one </Accordion.Header>
+					<Accordion.Body> This is a paragraph</Accordion.Body>
+				</Accordion.Item>
+				<Accordion.Item eventKey='1'>
+					<Accordion.Header> Accordion two </Accordion.Header>
+					<Accordion.Body> This is also an paragraph </Accordion.Body>
+				</Accordion.Item>
+			</Accordion> <hr/>
+
+			<Accordion>
+				<Card>
+					<Card.Header>
+						<CustomToggle eventKey='0'>Show First Accordion</CustomToggle>
+					</Card.Header>
+					<Accordion.Collapse eventKey='0'>
+						<Card.Body>This is the body</Card.Body>
+					</Accordion.Collapse>
+				</Card>
+			</Accordion>
+
+			
+		</Container>
 	)
 }
