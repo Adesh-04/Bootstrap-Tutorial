@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button, Col, Container, Row, Stack, Form, FormGroup, FormLabel, FormControl, FormRange, FormSelect, FormCheck, InputGroup } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, Col, Container, Row, Stack, Form, FormGroup, FormLabel, FormControl, FormRange, FormSelect, FormCheck, InputGroup, FloatingLabel, FormFloating } from 'react-bootstrap';
 import './../stylesheet/Style.css';
 
 export const ContainerTut =()=>{
@@ -114,14 +114,50 @@ export const FormTutPartOne =()=>{
 }
 
 export const FormTutPartTwo =()=>{
+
+	const [validate,setValidation] = useState(false)
+
+	const handleSubmit = (event) => {
+		const data = event.currentTarget;
+		if (data.checkValidity() === false) {
+		  event.preventDefault();
+		  event.stopPropagation();
+		}
+
+		setValidation(true);
+	
+	}
+
+
+
 	return(
 		<div>
 			<Container>
-				<Form>
-					<InputGroup>
+				<Form noValidate validated={validate} onSubmit={handleSubmit} >
+					<InputGroup hasValidation className='mb-3'>
 						<InputGroup.Text>@</InputGroup.Text>
-						<FormControl placeholder='Email'/>
+						<FormControl required placeholder='Email'/>
+						<FormControl.Feedback>Verified!</FormControl.Feedback>
+						<FormControl.Feedback type='invalid'> Not Verified!</FormControl.Feedback>
 					</InputGroup>
+					<InputGroup className='mb-3'>
+						<FormControl required placeholder='Search Here'/>
+						<Button type='button' varient='success'>Search </Button>
+						<FormControl.Feedback type='invalid'>Invalid!</FormControl.Feedback>
+					</InputGroup>
+
+					<FloatingLabel className='mb-3' label='Floating'>
+						<FormControl required placeholder='Floating' />
+					</FloatingLabel>
+
+					<FormFloating className='mb-3' >
+						<FormControl required placeholder='Flying Away'/>
+						<label>Email</label>
+					</FormFloating>
+
+					<Button type='submit' variant="success" > Submit</Button>
+
+
 				</Form>
 			</Container>
 		</div>
