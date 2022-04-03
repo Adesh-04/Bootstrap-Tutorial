@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import { ContainerTut, RowTut, ColOrderTut, StackTut, FormTutPartOne, FormTutPartTwo, AlertTut, AccordionTut} from "./components/Static"
 
 function App() {
@@ -15,10 +15,11 @@ function App() {
 
   return (
     <div className="App">
-        <div className='container-fluid mt-3 '>
-            <div className='row'>
-                <div className='col'>
-                    {
+
+        <Container fluid className='mt-3'>
+            <Row>
+                <Col>
+                {
                         container?
                         
                             <Button variant='outline-primary'
@@ -28,11 +29,11 @@ function App() {
                                 Container
                             </Button>
                         :   <Button onClick={()=> setContainer(true)} variant='primary'>Container</Button>
-                    }
-                </div>
+                    }    
+                </Col>
 
-                <div className='col'>
-                    {
+                <Col>
+                {
                         row?
                         
                             <Button variant='outline-dark'
@@ -43,10 +44,10 @@ function App() {
                             </Button>
                         :   <Button onClick={()=> setRow(true)} variant='dark'>Row</Button>
                     }
-                </div>
-                
-                <div className='col'>
-                    {
+                </Col>
+
+                <Col>
+                {
                         order?
                         
                             <Button variant='outline-warning'
@@ -57,10 +58,10 @@ function App() {
                             </Button>
                         :   <Button onClick={()=> setOrder(true)} variant='warning'>Col</Button>
                     }
-                </div>
+                </Col>
 
-                <div className='col'>
-                    {
+                <Col>
+                {
                         stack?
                         
                             <Button variant='outline-danger'
@@ -71,10 +72,10 @@ function App() {
                             </Button>
                         :   <Button onClick={()=> setStack(true)} variant='danger'>Stack</Button>
                     }
-                </div>
+                </Col>
 
-                <div className='col'>
-                    {
+                <Col>
+                {
                         formOne?
                             
                             <Button variant='outline-info'
@@ -85,10 +86,10 @@ function App() {
                         </Button>
                         :<Button onClick={()=> setFormOne(true)} variant='info'>Form 1</Button>
                     }
-                </div>
+                </Col>
 
-                <div className='col'>
-                    {
+                <Col>
+                {
                         formTwo?
                             
                             <Button variant='outline-dark'
@@ -99,10 +100,10 @@ function App() {
                         </Button>
                         :<Button onClick={()=> setFormTwo(true)} variant='dark'>Form 2</Button>
                     }
-                </div>
+                </Col>
                 
-                <div className='col'>
-                    {
+                <Col>
+                {
                         alert?
                             
                             <Button variant='outline-primary'
@@ -113,10 +114,10 @@ function App() {
                         </Button>
                         :<Button onClick={()=> setAlert(true)} variant='primary'>Alert</Button>
                     }
-                </div>
+                </Col>
 
-                <div className='col'>
-                    {
+                <Col>
+                {
                         accordion?
                         
                             <Button variant='outline-danger'
@@ -127,17 +128,15 @@ function App() {
                             </Button>
                         :   <Button onClick={()=> setAccordion(true)} variant='danger'>Accordion</Button>
                     }
-                </div>
+                </Col>
 
-            
-            </div>
-        </div><hr/><br/>
+            </Row>
+        </Container><hr/><br/>
+
+
+           
 
       
-
-      
-
-
 
 
 
